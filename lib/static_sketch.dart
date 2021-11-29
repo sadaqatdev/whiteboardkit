@@ -7,8 +7,11 @@ import 'whiteboard_style.dart';
 class StaticSketch extends StatefulWidget {
   final WhiteboardDraw draw;
   final WhiteboardStyle style;
-
-  StaticSketch({required this.draw, this.style = const WhiteboardStyle()});
+  final Widget childWidget;
+  StaticSketch(
+      {required this.draw,
+      this.style = const WhiteboardStyle(),
+      required this.childWidget});
 
   @override
   State<StaticSketch> createState() => StaticSketchState();
@@ -37,6 +40,7 @@ class StaticSketchState extends State<StaticSketch>
   Widget build(BuildContext context) {
     return Whiteboard(
       controller: controller as StaticSketchController,
+      childWidget: widget.childWidget,
     );
   }
 

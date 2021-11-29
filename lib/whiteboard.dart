@@ -15,8 +15,11 @@ const HEIGHT_TO_SUBSTRACT = 80.0;
 class Whiteboard extends StatefulWidget {
   final WhiteboardController controller;
   final WhiteboardStyle style;
-
-  Whiteboard({required this.controller, this.style = const WhiteboardStyle()});
+  Widget childWidget;
+  Whiteboard(
+      {required this.controller,
+      this.style = const WhiteboardStyle(),
+      required this.childWidget});
 
   @override
   WhiteboardState createState() => WhiteboardState();
@@ -98,6 +101,7 @@ class WhiteboardState extends State<Whiteboard> {
           children: <Widget>[
             Stack(
               children: <Widget>[
+                widget.childWidget,
                 Container(
                   margin: EdgeInsets.only(bottom: toolboxOffset),
                   width: boardSize.width,
@@ -134,7 +138,7 @@ class WhiteboardState extends State<Whiteboard> {
                                 WhiteboardDraw.empty(width: 200, height: 200)),
                             size: Size.infinite,
                             child: Container(
-                              color: Colors.white,
+                              color: Colors.transparent,
                             ),
                           );
                         }),
@@ -166,7 +170,7 @@ class WhiteboardState extends State<Whiteboard> {
                           onPressed: restartAnimationPressed,
                           splashColor: Colors.transparent,
                           highlightColor: Colors.transparent,
-                        )
+                        ),
               ],
             ),
           ],

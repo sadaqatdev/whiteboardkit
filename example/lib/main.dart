@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:whiteboardkit/drawing_controller.dart';
 import 'package:whiteboardkit/whiteboard.dart';
 import 'package:whiteboardkit/whiteboard_draw.dart';
-import 'package:whiteboardkit/whiteboardkit.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,7 +18,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
-
   final String title;
 
   @override
@@ -52,6 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               child: Whiteboard(
                 controller: controller,
+                childWidget: Text('This is child Widget'),
               ),
             ),
           ],

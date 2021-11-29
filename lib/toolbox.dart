@@ -33,6 +33,7 @@ class _ToolBoxState extends State<ToolBox> {
   late ToolBoxSelected selected;
 
   final brushSizes = <double>[10, 20, 30, 40];
+
   final brushColors = <Color>[
     Colors.black,
     Colors.blue,
